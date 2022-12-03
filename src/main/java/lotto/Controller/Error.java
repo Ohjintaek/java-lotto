@@ -18,6 +18,12 @@ public class Error {
         }
     }
 
+    public static void isDividable1000(int number) {
+        if ((number % 1000) != 0) {
+            throw new IllegalArgumentException("[ERROR] 1000으로 나누어떨어지는 숫자를 입력해주세요.");
+        }
+    }
+
     public static void isValidRange(int number) {
         if (number < MINLOTTONUM || number < MAXLOTTOUM) {
             throw new IllegalArgumentException("[ERROR] 1부터 45까지의 숫자만 입력해주세요.");
