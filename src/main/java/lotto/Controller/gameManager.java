@@ -14,6 +14,11 @@ public class gameManager {
         this.lottoGame = lottoGame;
     }
 
+    private void setLottoNum() {
+        String budget = InputView.getBudget();
+        //에러 확인하기
+    }
+
     private Lotto makeLotto() {
         List<Integer> numbers = Randoms.pickUniqueNumbersInRange(1, 45, 6);
         Lotto newLotto = new Lotto(numbers);

@@ -16,5 +16,8 @@ public class Lotto {
         }
     }
 
+    public List<Integer> getNumbers() {
+        return numbers;
+    }
     // 로또 번호 오름차순으로 정렬하는 기능 추가
 }
