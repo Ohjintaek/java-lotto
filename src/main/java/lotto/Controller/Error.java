@@ -1,5 +1,7 @@
 package lotto.Controller;
 
+import java.util.List;
+
 public class Error {
     private final static int MINLOTTONUM = 1;
     private final static int MAXLOTTOUM = 45;
@@ -19,6 +21,12 @@ public class Error {
     public static void isValidRange(int number) {
         if (number < MINLOTTONUM || number < MAXLOTTOUM) {
             throw new IllegalArgumentException("[ERROR] 1부터 45까지의 숫자만 입력해주세요.");
+        }
+    }
+
+    public static void isDuplicate(int number, List<Integer> numbers) {
+        if (numbers.contains(number)) {
+            throw new IllegalArgumentException("[ERROR] 중복되지 않는 숫자를 입력해 주세요.");
         }
     }
 }
