@@ -31,6 +31,16 @@ public class gameManager {
         return numbers;
     }
 
+    private void setWinningLotto(String userInput) {
+        List<Integer> numbers = parseStringToNumbers(userInput);
+        Lotto winningLotto = new Lotto(numbers);
+        lottoGame.winningLotto = winningLotto;
+    }
+
+    private void setBonusNumber(String userInput) {
+        lottoGame.bonusNumber = Integer.valueOf(userInput);
+    }
+
     private Lotto makeLotto() {
         List<Integer> numbers = Randoms.pickUniqueNumbersInRange(1, 45, 6);
         Lotto newLotto = new Lotto(numbers);
