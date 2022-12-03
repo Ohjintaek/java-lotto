@@ -67,12 +67,13 @@ public class gameManager {
     private void calculateYield() {
         int budget = lottoGame.lottoNum * PRICE;
         List<Integer> result = lottoGame.result;
-        List<Rank> ranks = new ArrayList<>(List.of(Rank.values());
+        List<Rank> ranks = new ArrayList<>(List.of(Rank.values()));
         float money = 0;
 
         for(int index = 0; index < result.size(); index++) {
             money += result.get(index) * ranks.get(index).getReward();
         }
+
         lottoGame.yield = (money / budget) * 100;
     }
 }
