@@ -35,4 +35,10 @@ public class Error {
             throw new IllegalArgumentException("[ERROR] 중복되지 않는 숫자를 입력해 주세요.");
         }
     }
+
+    public static void isValidWinningLotto(String userInput) {
+        if (!userInput.matches("^[0-9]+,[0-9]+,[0-9]+,[0-9]+,[0-9]+,[0-9]+$")) {
+            throw new IllegalArgumentException("[ERROR] 당첨 번호는 ,로 구분되는 6개의 숫자를 입력해주세요.");
+        }
+    }
 }
