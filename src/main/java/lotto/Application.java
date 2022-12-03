@@ -8,6 +8,10 @@ public class Application {
         // TODO: 프로그램 구현
         LottoGame lottogame = new LottoGame();
         GameManager gameManager = new GameManager(lottogame);
-        gameManager.run();
+        try {
+            gameManager.run();
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
