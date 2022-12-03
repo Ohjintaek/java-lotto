@@ -7,15 +7,22 @@ import lotto.Model.LottoGame;
 import java.util.List;
 
 public class gameManager {
-    private LottoGame lottogame;
+    private LottoGame lottoGame;
 
-    public gameManager(LottoGame lottogame) {
-        this.lottogame = lottogame;
+    public gameManager(LottoGame lottoGame) {
+        this.lottoGame = lottoGame;
     }
 
     private Lotto makeLotto() {
         List<Integer> numbers = Randoms.pickUniqueNumbersInRange(1, 45, 6);
         Lotto newLotto = new Lotto(numbers);
         return newLotto;
+    }
+
+    private void makePurchasedLotto() {
+        int number = lottoGame.lottoNum;
+        for (int count = 0; count < number; count++) {
+            lottoGame.purchasedLotto.add(makeLotto());
+        }
     }
 }
