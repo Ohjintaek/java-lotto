@@ -15,4 +15,12 @@ public enum Rank {
         this.rank = rank;
         this.reward = reward;
     }
+
+    public int getRank() {
+        return rank;
+    }
+
+    public int getReward() {
+        return reward;
+    }
 }
