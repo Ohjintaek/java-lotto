@@ -45,8 +45,6 @@ public class GameManager {
             Error.isValidRange(number);
             numbers.add(number);
         }
-        Error.existDuplicateNumber(numbers);
-        //에러 확인하기
         return numbers;
     }
 
@@ -87,23 +85,23 @@ public class GameManager {
         }
 
         if (count < 3) {
-            lottoGame.result.set(Rank.NOTHING.getRank(), lottoGame.result.get(Rank.NOTHING.getRank()));
+            lottoGame.result.set(Rank.NOTHING.getRank(), lottoGame.result.get(Rank.NOTHING.getRank()) + 1);
         }
         if (count == 6) {
-            lottoGame.result.set(Rank.FIRST.getRank(), lottoGame.result.get(Rank.FIRST.getRank()));
+            lottoGame.result.set(Rank.FIRST.getRank(), lottoGame.result.get(Rank.FIRST.getRank()) + 1);
         }
         if (count == 5) {
             if (myLotto.contains(bonusNumber)) {
-                lottoGame.result.set(Rank.SECOND.getRank(), lottoGame.result.get(Rank.SECOND.getRank()));
+                lottoGame.result.set(Rank.SECOND.getRank(), lottoGame.result.get(Rank.SECOND.getRank()) + 1);
                 return;
             }
-            lottoGame.result.set(Rank.THIRD.getRank(), lottoGame.result.get(Rank.THIRD.getRank()));
+            lottoGame.result.set(Rank.THIRD.getRank(), lottoGame.result.get(Rank.THIRD.getRank()) + 1);
         }
         if (count == 4) {
-            lottoGame.result.set(Rank.FOURTH.getRank(), lottoGame.result.get(Rank.FOURTH.getRank()));
+            lottoGame.result.set(Rank.FOURTH.getRank(), lottoGame.result.get(Rank.FOURTH.getRank()) + 1);
         }
         if (count == 3) {
-            lottoGame.result.set(Rank.FIFTH.getRank(), lottoGame.result.get(Rank.FIFTH.getRank()));
+            lottoGame.result.set(Rank.FIFTH.getRank(), lottoGame.result.get(Rank.FIFTH.getRank()) + 1);
         }
     }
 

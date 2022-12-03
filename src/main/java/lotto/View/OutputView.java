@@ -9,7 +9,7 @@ import java.util.List;
 
 public class OutputView {
     public static void showPurchasedLotto(int number, List<Lotto> purchasedLotto) {
-        System.out.println(String.format("%d개를 구매하였습니다.", number));
+        System.out.println(String.format("%d개를 구매했습니다.", number));
         for(Lotto lotto : purchasedLotto) {
             List<Integer> numbers = new ArrayList<>(lotto.getNumbers());
             Collections.sort(numbers);
