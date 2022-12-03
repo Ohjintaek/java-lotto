@@ -3,13 +3,17 @@ package lotto.View;
 import lotto.Model.Lotto;
 import lotto.Model.Rank;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class OutputView {
     public static void showPurchasedLotto(int number, List<Lotto> purchasedLotto) {
         System.out.println(String.format("%d개를 구매하였습니다.", number));
         for(Lotto lotto : purchasedLotto) {
-            System.out.println(lotto.getNumbers());
+            List<Integer> numbers = new ArrayList<>(lotto.getNumbers());
+            Collections.sort(numbers);
+            System.out.println(numbers);
         }
         System.out.println();
     }

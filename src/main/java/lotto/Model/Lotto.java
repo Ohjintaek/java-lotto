@@ -1,6 +1,7 @@
 package lotto.Model;
 
-import java.util.Collections;
+import lotto.Controller.Error;
+
 import java.util.List;
 
 public class Lotto {
@@ -8,7 +9,7 @@ public class Lotto {
 
     public Lotto(List<Integer> numbers) {
         validate(numbers);
-        Collections.sort(numbers);
+        Error.existDuplicateNumber(numbers);
         this.numbers = numbers;
     }
 

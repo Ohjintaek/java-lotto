@@ -1,5 +1,9 @@
 package lotto.Controller;
 
+import net.bytebuddy.pool.TypePool;
+
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Error {
@@ -25,20 +29,30 @@ public class Error {
     }
 
     public static void isValidRange(int number) {
-        if (number < MINLOTTONUM || number < MAXLOTTOUM) {
+        if (number < MINLOTTONUM || number > MAXLOTTOUM) {
             throw new IllegalArgumentException("[ERROR] 1부터 45까지의 숫자만 입력해주세요.");
         }
     }
 
-    public static void isDuplicate(int number, List<Integer> numbers) {
+    public static void isDuplicateBonusNumber(int number, List<Integer> numbers) {
         if (numbers.contains(number)) {
-            throw new IllegalArgumentException("[ERROR] 중복되지 않는 숫자를 입력해 주세요.");
+            throw new IllegalArgumentException("[ERROR] 보너스 번호는 당첨 번호와 중복되지 않는 숫자를 입력해 주세요.");
         }
     }
 
     public static void isValidWinningLotto(String userInput) {
         if (!userInput.matches("^[0-9]+,[0-9]+,[0-9]+,[0-9]+,[0-9]+,[0-9]+$")) {
             throw new IllegalArgumentException("[ERROR] 당첨 번호는 ,로 구분되는 6개의 숫자를 입력해주세요.");
+        }
+    }
+
+    public static void existDuplicateNumber(List<Integer> numbers) {
+        List<Integer> tmpNumbers = new ArrayList<>(numbers);
+        Collections.sort(tmpNumbers);
+        for (int index = 1; index < tmpNumbers.size(); index++) {
+            if (tmpNumbers.get(index) == tmpNumbers.get(index - 1)) {
+                throw new IllegalArgumentException("[ERROR] 로또 번호는 중복되지 않는 6개의 숫자여야 합니다.");
+            }
         }
     }
 }

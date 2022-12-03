@@ -43,9 +43,9 @@ public class GameManager {
             Error.isValidNumber(input);
             int number = Integer.valueOf(input);
             Error.isValidRange(number);
-            Error.isDuplicate(number, numbers);
             numbers.add(number);
         }
+        Error.existDuplicateNumber(numbers);
         //에러 확인하기
         return numbers;
     }
@@ -61,7 +61,7 @@ public class GameManager {
         Error.isValidNumber(userInput);
         int bonusNumber = Integer.valueOf(userInput);
         Error.isValidRange(bonusNumber);
-        Error.isDuplicate(bonusNumber, lottoGame.winningLotto.getNumbers());
+        Error.isDuplicateBonusNumber(bonusNumber, lottoGame.winningLotto.getNumbers());
         lottoGame.bonusNumber = bonusNumber;
     }
 
