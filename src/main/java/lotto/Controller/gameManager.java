@@ -83,6 +83,12 @@ public class gameManager {
         }
     }
 
+    private void judgeMyLotto() {
+        for (Lotto myLotto : lottoGame.purchasedLotto) {
+            judgeRank(myLotto.getNumbers(), lottoGame.winningLotto.getNumbers(), lottoGame.bonusNumber);
+        }
+    }
+
     private void calculateYield() {
         int budget = lottoGame.lottoNum * PRICE;
         List<Integer> result = lottoGame.result;
