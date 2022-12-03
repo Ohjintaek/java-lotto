@@ -6,9 +6,11 @@ import lotto.Model.LottoGame;
 import lotto.Model.Rank;
 import lotto.View.InputView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class gameManager {
+    private static int PRICE = 1000;
     private LottoGame lottoGame;
 
     public gameManager(LottoGame lottoGame) {
@@ -60,5 +62,17 @@ public class gameManager {
         if (count == 3) {
             lottoGame.result.set(Rank.FIFTH.getRank(), lottoGame.result.get(Rank.FIFTH.getRank()));
         }
+    }
+
+    private void calculateYield() {
+        int budget = lottoGame.lottoNum * PRICE;
+        List<Integer> result = lottoGame.result;
+        List<Rank> ranks = new ArrayList<>(List.of(Rank.values());
+        float money = 0;
+
+        for(int index = 0; index < result.size(); index++) {
+            money += result.get(index) * ranks.get(index).getReward();
+        }
+        lottoGame.yield = (money / budget) * 100;
     }
 }
