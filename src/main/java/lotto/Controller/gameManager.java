@@ -22,6 +22,15 @@ public class gameManager {
         //에러 확인하기
     }
 
+    private List<Integer> parseStringToNumbers(String userInput) {
+        List<Integer> numbers = new ArrayList<>();
+        for (String input : userInput.split(",")) {
+            numbers.add(Integer.valueOf(input));
+        }
+        //에러 확인하기
+        return numbers;
+    }
+
     private Lotto makeLotto() {
         List<Integer> numbers = Randoms.pickUniqueNumbersInRange(1, 45, 6);
         Lotto newLotto = new Lotto(numbers);
