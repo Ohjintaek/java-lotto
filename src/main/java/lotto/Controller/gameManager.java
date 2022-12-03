@@ -5,21 +5,35 @@ import lotto.Model.Lotto;
 import lotto.Model.LottoGame;
 import lotto.Model.Rank;
 import lotto.View.InputView;
+import lotto.View.OutputView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class gameManager {
+public class GameManager {
     private static int PRICE = 1000;
     private LottoGame lottoGame;
 
-    public gameManager(LottoGame lottoGame) {
+    public GameManager(LottoGame lottoGame) {
         this.lottoGame = lottoGame;
     }
 
-    private void setLottoNum() {
-        String budget = InputView.getBudget();
+    public void run() {
+        setLottoNum(InputView.getBudget());
+        makePurchasedLotto();
+        OutputView.showPurchasedLotto(lottoGame.lottoNum, lottoGame.purchasedLotto);
+        setWinningLotto(InputView.getWinningLotto());
+        setBonusNumber(InputView.getBonusNumber());
+        judgeMyLotto();
+        calculateYield();
+        OutputView.showResult(lottoGame.result, lottoGame.yield);
+    }
+
+    private void setLottoNum(String userInput) {
+        int budget = Integer.valueOf(userInput);
         //에러 확인하기
+
+        lottoGame.lottoNum = (budget / 1000);
     }
 
     private List<Integer> parseStringToNumbers(String userInput) {
