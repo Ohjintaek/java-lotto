@@ -30,29 +30,39 @@ public class GameManager {
     }
 
     private void setLottoNum(String userInput) {
+        Error.isValidNumber(userInput);
         int budget = Integer.valueOf(userInput);
-        //에러 확인하기
 
+        Error.isDividable1000(budget);
         lottoGame.lottoNum = (budget / 1000);
     }
 
     private List<Integer> parseStringToNumbers(String userInput) {
         List<Integer> numbers = new ArrayList<>();
         for (String input : userInput.split(",")) {
-            numbers.add(Integer.valueOf(input));
+            Error.isValidNumber(input);
+            int number = Integer.valueOf(input);
+            Error.isValidRange(number);
+            Error.isDuplicate(number, numbers);
+            numbers.add(number);
         }
         //에러 확인하기
         return numbers;
     }
 
     private void setWinningLotto(String userInput) {
+        Error.isValidWinningLotto(userInput);
         List<Integer> numbers = parseStringToNumbers(userInput);
         Lotto winningLotto = new Lotto(numbers);
         lottoGame.winningLotto = winningLotto;
     }
 
     private void setBonusNumber(String userInput) {
-        lottoGame.bonusNumber = Integer.valueOf(userInput);
+        Error.isValidNumber(userInput);
+        int bonusNumber = Integer.valueOf(userInput);
+        Error.isValidRange(bonusNumber);
+        Error.isDuplicate(bonusNumber, lottoGame.winningLotto.getNumbers());
+        lottoGame.bonusNumber = bonusNumber;
     }
 
     private Lotto makeLotto() {
