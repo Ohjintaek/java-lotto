@@ -8,6 +8,6 @@ public class LottoGame {
     public List<Lotto> purchasedLotto = new ArrayList<>();
     public Lotto winningLotto;
     public int bonusNumber;
-    public List<Integer> result = new ArrayList<Integer>(List.of(0,0,0,0,0,0));
+    public List<Integer> result = new ArrayList<Integer>(List.of(0, 0, 0, 0, 0, 0));
     public float yield;
 }
