@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameManager {
-    private static int PRICE = 1000;
+    private final int PRICE = 1000;
     private LottoGame lottoGame;
 
     public GameManager(LottoGame lottoGame) {
